@@ -31,7 +31,7 @@ const ServiceCard = ({
         transitionDelay: `${delay}s`
       }}
     >
-      <div className="rounded-full w-12 h-12 flex items-center justify-center bg-white dark:bg-slate-800 mb-4">
+      <div className="rounded-full w-12 h-12 flex items-center justify-center bg-white dark:bg-black mb-4">
         <Icon size={24} className="text-gray-800 dark:text-gray-200" />
       </div>
       <h3 className="text-xl font-bold mb-3">{title}</h3>
@@ -71,7 +71,7 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 md:py-24 bg-gray-50 dark:bg-slate-900/50">
+    <section id="services" className="py-20 md:py-24 bg-gray-50 dark:bg-black">
       <div className="container mx-auto px-6 md:px-12">
         <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
           <div 

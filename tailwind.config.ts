@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -72,10 +71,10 @@ export default {
 				'blue-card': '#90CAF9',
 				'pink-card': '#F8BBD0',
 				'tag-bg': '#F0E6FF',
-				'dark-yellow-card': '#302815',
-				'dark-blue-card': '#15222D',
-				'dark-pink-card': '#2D1822',
-				'dark-tag-bg': '#261A40',
+				'dark-yellow-card': '#1A1500',
+				'dark-blue-card': '#001024',
+				'dark-pink-card': '#1A0010',
+				'dark-tag-bg': '#120A24',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

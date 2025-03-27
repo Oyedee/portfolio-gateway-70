@@ -10,7 +10,7 @@ const Footer = () => {
   };
   
   return (
-    <footer className="py-12 bg-gray-50 dark:bg-slate-900/50 border-t border-gray-200 dark:border-gray-800">
+    <footer className="py-12 bg-gray-50 dark:bg-black border-t border-gray-200 dark:border-gray-800">
       <div className="container mx-auto px-6 md:px-12">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center gap-2 mb-6 md:mb-0">
@@ -23,7 +23,7 @@ const Footer = () => {
           <div className="flex gap-4 mb-6 md:mb-0">
             <a 
               href="mailto:oyempemia@gmail.com" 
-              className="animated-icon flex items-center justify-center h-10 w-10 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+              className="animated-icon flex items-center justify-center h-10 w-10 rounded-full bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800"
               aria-label="Email"
             >
               <Mail size={18} />
@@ -32,7 +32,7 @@ const Footer = () => {
               href="https://github.com" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="animated-icon flex items-center justify-center h-10 w-10 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+              className="animated-icon flex items-center justify-center h-10 w-10 rounded-full bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800"
               aria-label="GitHub"
             >
               <Github size={18} />
@@ -41,7 +41,7 @@ const Footer = () => {
               href="https://linkedin.com" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="animated-icon flex items-center justify-center h-10 w-10 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+              className="animated-icon flex items-center justify-center h-10 w-10 rounded-full bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800"
               aria-label="LinkedIn"
             >
               <Linkedin size={18} />
@@ -50,7 +50,7 @@ const Footer = () => {
               href="https://twitter.com" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="animated-icon flex items-center justify-center h-10 w-10 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+              className="animated-icon flex items-center justify-center h-10 w-10 rounded-full bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800"
               aria-label="Twitter"
             >
               <Twitter size={18} />
@@ -59,7 +59,7 @@ const Footer = () => {
               href="https://instagram.com" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="animated-icon flex items-center justify-center h-10 w-10 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+              className="animated-icon flex items-center justify-center h-10 w-10 rounded-full bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800"
               aria-label="Instagram"
             >
               <Instagram size={18} />
