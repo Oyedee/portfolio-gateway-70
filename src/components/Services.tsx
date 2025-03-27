@@ -20,11 +20,13 @@ const ServiceCard = ({
   return (
     <div 
       ref={domRef}
-      className={`${color} rounded-xl p-6 transform card-shadow transition-all duration-500 ease-out border border-[rgba(0,0,0,0.03)]`}
+      className={`${color} rounded-xl p-6 transform transition-all duration-500 ease-out border border-[rgba(0,0,0,0.03)] h-full shadow-sm`}
       style={{ 
-        opacity: 0, 
-        transform: 'translateY(20px) rotate(-4deg)',
-        animation: isVisible ? `skew-in 0.7s ${delay}s ease-out forwards` : 'none'
+        opacity: isVisible ? 1 : 0, 
+        transform: isVisible 
+          ? 'translateY(0) rotate(0deg)' 
+          : 'translateY(20px) rotate(-4deg)',
+        transitionDelay: `${delay}s`
       }}
     >
       <div className="rounded-full w-12 h-12 flex items-center justify-center bg-white mb-4">
@@ -69,7 +71,11 @@ const Services = () => {
         <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
           <div 
             ref={domRef}
-            className={`transition-all duration-500 ${isVisible ? 'opacity-100 transform-none' : 'opacity-0 -translate-y-4'}`}
+            className="transition-all duration-500"
+            style={{ 
+              opacity: isVisible ? 1 : 0, 
+              transform: isVisible ? 'none' : 'translateY(-20px)' 
+            }}
           >
             <div className="handwritten mb-2 inline-block">What I do?</div>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">My Expertise</h2>
@@ -80,7 +86,7 @@ const Services = () => {
           </div>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {services.map((service, index) => (
             <ServiceCard key={index} {...service} />
           ))}
