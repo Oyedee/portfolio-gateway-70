@@ -7,12 +7,14 @@ const ServiceCard = ({
   description, 
   icon: Icon, 
   color, 
+  darkColor,
   delay 
 }: { 
   title: string; 
   description: string; 
   icon: any; 
-  color: string; 
+  color: string;
+  darkColor: string;
   delay: number;
 }) => {
   const { domRef, isVisible } = useScrollAnimation();
@@ -20,7 +22,7 @@ const ServiceCard = ({
   return (
     <div 
       ref={domRef}
-      className={`${color} rounded-xl p-6 transform transition-all duration-500 ease-out border border-[rgba(0,0,0,0.03)] h-full shadow-sm`}
+      className={`${color} dark:${darkColor} rounded-xl p-6 transform transition-all duration-500 ease-out border border-[rgba(0,0,0,0.03)] dark:border-[rgba(255,255,255,0.05)] h-full shadow-sm`}
       style={{ 
         opacity: isVisible ? 1 : 0, 
         transform: isVisible 
@@ -29,11 +31,11 @@ const ServiceCard = ({
         transitionDelay: `${delay}s`
       }}
     >
-      <div className="rounded-full w-12 h-12 flex items-center justify-center bg-white mb-4">
-        <Icon size={24} />
+      <div className="rounded-full w-12 h-12 flex items-center justify-center bg-white dark:bg-slate-800 mb-4">
+        <Icon size={24} className="text-gray-800 dark:text-gray-200" />
       </div>
       <h3 className="text-xl font-bold mb-3">{title}</h3>
-      <p className="text-gray-700">{description}</p>
+      <p className="text-gray-700 dark:text-gray-300">{description}</p>
     </div>
   );
 };
@@ -47,6 +49,7 @@ const Services = () => {
       description: "Building intuitive and responsive mobile applications with Flutter and Android, focusing on exceptional user experiences.",
       icon: SmartphoneNfc,
       color: "bg-yellow-card",
+      darkColor: "bg-dark-yellow-card",
       delay: 0.1
     },
     {
@@ -54,6 +57,7 @@ const Services = () => {
       description: "Creating beautiful, functional interfaces that delight users while solving business problems effectively.",
       icon: Layout,
       color: "bg-blue-card",
+      darkColor: "bg-dark-blue-card",
       delay: 0.2
     },
     {
@@ -61,12 +65,13 @@ const Services = () => {
       description: "Implementing secure backend solutions with Firebase, AWS, and other cloud platforms to power mobile applications.",
       icon: Database,
       color: "bg-pink-card",
+      darkColor: "bg-dark-pink-card",
       delay: 0.3
     }
   ];
 
   return (
-    <section id="services" className="py-20 md:py-24 bg-gray-50">
+    <section id="services" className="py-20 md:py-24 bg-gray-50 dark:bg-slate-900/50">
       <div className="container mx-auto px-6 md:px-12">
         <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
           <div 
@@ -79,7 +84,7 @@ const Services = () => {
           >
             <div className="handwritten mb-2 inline-block">What I do?</div>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">My Expertise</h2>
-            <p className="text-gray-600">
+            <p className="text-gray-600 dark:text-gray-300">
               I specialize in creating exceptional mobile experiences with a focus on performance, 
               security, and intuitive design. Here's how I can help you:
             </p>

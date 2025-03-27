@@ -72,6 +72,10 @@ export default {
 				'blue-card': '#90CAF9',
 				'pink-card': '#F8BBD0',
 				'tag-bg': '#F0E6FF',
+				'dark-yellow-card': '#302815',
+				'dark-blue-card': '#15222D',
+				'dark-pink-card': '#2D1822',
+				'dark-tag-bg': '#261A40',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
