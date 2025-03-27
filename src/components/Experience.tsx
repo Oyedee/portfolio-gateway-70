@@ -26,18 +26,18 @@ const ExperienceCard = ({
         <div className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-white ${index % 2 === 0 ? 'bg-purple-600' : 'bg-blue-500'}`}>
           {index + 1}
         </div>
-        {index < 3 && <div className="w-0.5 grow mt-2 bg-gray-200"></div>}
+        {index < 3 && <div className="w-0.5 grow mt-2 bg-gray-200 dark:bg-gray-700"></div>}
       </div>
       
       <div className="pb-12">
-        <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 mb-4">
-          <h3 className="text-xl font-bold">{position}</h3>
+        <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-800 mb-4">
+          <h3 className="text-xl font-bold dark:text-white">{position}</h3>
           <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 mb-4">
             <span className="font-medium text-purple-600">{company}</span>
             <span className="hidden sm:inline text-gray-300">•</span>
-            <span className="text-gray-500 text-sm">{period}</span>
+            <span className="text-gray-500 dark:text-gray-400 text-sm">{period}</span>
           </div>
-          <p className="text-gray-600">{description}</p>
+          <p className="text-gray-600 dark:text-gray-300">{description}</p>
         </div>
       </div>
     </div>
@@ -75,7 +75,7 @@ const Experience = () => {
   ];
   
   return (
-    <section id="experience" className="py-20 md:py-24 bg-gray-50">
+    <section id="experience" className="py-20 md:py-24 bg-white dark:bg-black">
       <div className="container mx-auto px-6 md:px-12">
         <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
           <div 
@@ -83,8 +83,8 @@ const Experience = () => {
             className={`transition-all duration-500 ${isVisible ? 'opacity-100 transform-none' : 'opacity-0 -translate-y-4'}`}
           >
             <div className="handwritten mb-2 inline-block">Work Experience</div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">My Professional Journey</h2>
-            <p className="text-gray-600">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 dark:text-white">My Professional Journey</h2>
+            <p className="text-gray-600 dark:text-gray-300">
               With expertise in mobile development, I've helped various companies build exceptional
               digital products. Here's my professional background:
             </p>

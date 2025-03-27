@@ -31,7 +31,7 @@ const ProjectCard = ({
             <span key={tagIndex} className="tag">{tag}</span>
           ))}
         </div>
-        <h3 className="text-xl md:text-2xl font-bold mb-3">{title}</h3>
+        <h3 className="text-xl md:text-2xl font-bold mb-3 text-gray-800">{title}</h3>
         <p className="text-gray-700 mb-4">{description}</p>
         <a 
           href="#" 
@@ -71,7 +71,7 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 md:py-24">
+    <section id="projects" className="py-20 md:py-24 bg-white dark:bg-black">
       <div className="container mx-auto px-6 md:px-12">
         <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
           <div 
@@ -79,8 +79,8 @@ const Projects = () => {
             className={`transition-all duration-500 ${isVisible ? 'opacity-100 transform-none' : 'opacity-0 -translate-y-4'}`}
           >
             <div className="handwritten mb-2 inline-block">Featured Projects</div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">My Recent Work</h2>
-            <p className="text-gray-600">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 dark:text-white">My Recent Work</h2>
+            <p className="text-gray-600 dark:text-gray-300">
               I've worked on a variety of projects, from mobile applications to comprehensive platforms. 
               Here are some highlights from my portfolio:
             </p>
