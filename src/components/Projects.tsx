@@ -16,7 +16,7 @@ const ProjectCard = ({
   const { domRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
   
   // Alternate the card colors
-  const cardColors = ["bg-yellow-card", "bg-blue-card", "bg-pink-card"];
+  const cardColors = ["project-card-yellow", "project-card-blue", "project-card-pink"];
   const color = cardColors[index % cardColors.length];
   
   return (

@@ -152,16 +152,19 @@
   }
   
   /* Project cards - maintain light mode appearance in dark mode */
-  .bg-yellow-card {
-    @apply bg-yellow-card text-gray-800;
+  .project-card-yellow {
+    background-color: #FFE082;
+    @apply text-gray-800;
   }
   
-  .bg-blue-card {
-    @apply bg-blue-card text-gray-800;
+  .project-card-blue {
+    background-color: #90CAF9;
+    @apply text-gray-800;
   }
   
-  .bg-pink-card {
-    @apply bg-pink-card text-gray-800;
+  .project-card-pink {
+    background-color: #F8BBD0;
+    @apply text-gray-800;
   }
 }
 
