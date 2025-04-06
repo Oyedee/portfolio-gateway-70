@@ -71,11 +71,11 @@ const Hero = () => {
             </div>
             
             <div className="absolute -bottom-4 -left-4 transform rotate-3 bg-yellow-card px-5 py-3 rounded-lg shadow-lg animate-rotate-card">
-              <div className="font-medium">Flutter Developer</div>
+              <div className="font-medium">Software Developer</div>
             </div>
             
             <div className="absolute -top-4 -right-4 transform -rotate-6 bg-blue-card px-5 py-3 rounded-lg shadow-lg animate-rotate-card">
-              <div className="font-medium">Mobile Development Expert</div>
+              <div className="font-medium">Mobile Expert</div>
             </div>
           </div>
         </div>
