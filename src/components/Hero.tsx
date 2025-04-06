@@ -39,7 +39,7 @@ const Hero = () => {
                 <Mail size={18} />
               </a>
               <a 
-                href="https://github.com" 
+                href="https://github.com/Oyedee" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="animated-icon flex items-center justify-center h-10 w-10 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200"
@@ -48,7 +48,7 @@ const Hero = () => {
                 <Github size={18} />
               </a>
               <a 
-                href="https://linkedin.com" 
+                href="https://linkedin.com/in/hamid-oyempemi-gmnse-828a22115" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="animated-icon flex items-center justify-center h-10 w-10 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200"
