@@ -44,7 +44,7 @@ const Services = () => {
   const services = [
     {
       title: "Mobile App Development",
-      description: "Building intuitive and responsive mobile applications with Flutter and Android, focusing on exceptional user experiences.",
+      description: "Building intuitive and responsive mobile applications with Flutter, Android and iOS, focusing on exceptional user experiences.",
       icon: SmartphoneNfc,
       color: "bg-yellow-card",
       delay: 0.1
@@ -58,11 +58,18 @@ const Services = () => {
     },
     {
       title: "Backend Integration",
-      description: "Implementing secure backend solutions with Firebase, AWS, and other cloud platforms to power mobile applications.",
+      description: "Implementing secure backend solutions with Firebase, Supabase, AppWrite, AWS, and other cloud platforms to power mobile applications.",
       icon: Database,
       color: "bg-pink-card",
       delay: 0.3
-    }
+    },
+  {
+    title: "Backend Development",
+    description: "Implementing scalable backend applications with Java Springboot and NodeJS typescript.",
+    icon: DatabaseBackup,
+    color: "bg-dark-blue-card",
+    delay: 0.3
+  }
   ];
 
   return (
