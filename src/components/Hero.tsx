@@ -75,7 +75,7 @@ const Hero = () => {
             </div>
             
             <div className="absolute -top-4 -right-4 transform -rotate-6 bg-blue-card px-5 py-3 rounded-lg shadow-lg animate-rotate-card">
-              <div className="font-medium">Mobile Developement Expert</div>
+              <div className="font-medium">Mobile Development Expert</div>
             </div>
           </div>
         </div>
