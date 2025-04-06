@@ -5,12 +5,14 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 const ProjectCard = ({ 
   title, 
   description, 
-  tags, 
+  tags,
+  url, 
   index 
 }: {
   title: string;
   description: string;
   tags: string[];
+  url: string;
   index: number;
 }) => {
   const { domRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
@@ -34,7 +36,7 @@ const ProjectCard = ({
         <h3 className="text-xl md:text-2xl font-bold mb-3 text-gray-800">{title}</h3>
         <p className="text-gray-700 mb-4">{description}</p>
         <a 
-          href="#" 
+          href="{{ url }}" 
           className="inline-flex items-center gap-2 font-medium text-gray-900 group-hover:text-purple-600 transition-colors"
         >
           View Project <ExternalLink size={16} />
@@ -49,25 +51,41 @@ const Projects = () => {
   
   const projects = [
     {
+      title: "Dukka App",
+      description: "All your Businesses in the palm of your hands.",
+      tags: ["Flutter", "Fintech", "Business"],
+      url: "https://dukka.com/"
+    },
+    {
+      title: "Kada",
+      description: "A community focused app that helps you manage Endowment fund and causes for your small and large Alumni networks",
+      tags: ["Flutter", "Java", "Endowment", "Alumni"],
+      url: "https://kada.ng/"
+    },
+    {
       title: "Weeshr",
       description: "A comprehensive birthday gifting platform with wishlist creation, social sharing features, and secure payment integration.",
-      tags: ["Flutter", "Firebase"]
+      tags: ["Flutter", "Firebase"],
+      url: "https://weeshr.com/"
     },
     {
       title: "Baxi Onafriq",
       description: "Financial platform enabling agent-based transactions, commission tracking, and integrated mobile money systems with real-time processing.",
-      tags: ["Flutter", "Financial APIs"]
+      tags: ["Flutter", "Financial APIs"],
+      url: "https://onafriq.com/"
+    },
+    {
+      title: "My Invester",
+      description: "A fintech app that helps you manage your savings, investments, loan disburment etc",
+      tags: ["Flutter", "Fintech", "Investment"],
+      url: "https://myinvestar.ng/"
     },
     {
       title: "Flash Chat",
       description: "Modern messaging app with Firebase authentication, custom animations, and real-time chat functionality.",
-      tags: ["Flutter", "Firebase"]
+      tags: ["Flutter", "Firebase"],
+      url: "#"
     },
-    {
-      title: "Clima",
-      description: "Weather app providing live data for current location and specified cities with robust error handling and API integration.",
-      tags: ["Flutter", "Weather API"]
-    }
   ];
 
   return (

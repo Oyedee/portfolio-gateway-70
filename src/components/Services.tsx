@@ -67,7 +67,7 @@ const Services = () => {
     title: "Backend Development",
     description: "Implementing scalable backend applications with Java Springboot and NodeJS typescript.",
     icon: DatabaseBackup,
-    color: "bg-dark-blue-card",
+    color: "bg-lilac-card",
     delay: 0.3
   }
   ];

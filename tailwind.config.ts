@@ -75,6 +75,7 @@ export default {
 				'dark-blue-card': '#001024',
 				'dark-pink-card': '#1A0010',
 				'dark-tag-bg': '#120A24',
+				'lilac-card': '#C8A2C8',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
