@@ -54,7 +54,7 @@ const Projects = () => {
       tags: ["Flutter", "Firebase"]
     },
     {
-      title: "Onafriq",
+      title: "Baxi Onafriq",
       description: "Financial platform enabling agent-based transactions, commission tracking, and integrated mobile money systems with real-time processing.",
       tags: ["Flutter", "Financial APIs"]
     },

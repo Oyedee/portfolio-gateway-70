@@ -1,5 +1,5 @@
 
-import { SmartphoneNfc, Layout, Database } from 'lucide-react';
+import { SmartphoneNfc, Layout, Database, DatabaseBackup } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const ServiceCard = ({ 
