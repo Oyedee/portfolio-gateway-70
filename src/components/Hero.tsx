@@ -12,11 +12,11 @@ const Hero = () => {
           <div className="order-2 md:order-1">
             <div className="handwritten mb-2">Mobile Developer</div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              I build exceptional<br />
-              mobile experiences
+              I build beautiful<br />
+              user experiences on mobile platforms
             </h1>
             <p className="text-gray-600 mb-8 text-lg">
-              Specializing in Flutter and Android development with a focus on creating seamless, 
+              Specializing in Flutter, iOS and Android development with a focus on creating seamless, 
               intuitive applications that solve real problems.
             </p>
             
@@ -75,7 +75,7 @@ const Hero = () => {
             </div>
             
             <div className="absolute -top-4 -right-4 transform -rotate-6 bg-blue-card px-5 py-3 rounded-lg shadow-lg animate-rotate-card">
-              <div className="font-medium">Mobile Expert</div>
+              <div className="font-medium">Mobile Developement Expert</div>
             </div>
           </div>
         </div>
