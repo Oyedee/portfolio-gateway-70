@@ -36,7 +36,9 @@ const ProjectCard = ({
         <h3 className="text-xl md:text-2xl font-bold mb-3 text-gray-800">{title}</h3>
         <p className="text-gray-700 mb-4">{description}</p>
         <a 
-          href="{{ url }}" target="_blank"
+          href={url} 
+          target="_blank" 
+          rel="noopener noreferrer"
           className="inline-flex items-center gap-2 font-medium text-gray-900 group-hover:text-purple-600 transition-colors"
         >
           View Project <ExternalLink size={16} />
