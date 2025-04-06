@@ -77,7 +77,7 @@ const Projects = () => {
       url: "https://onafriq.com/"
     },
     {
-      title: "My Invester",
+      title: "My Investar",
       description: "A fintech app that helps you manage your savings, investments, loan disburment etc",
       tags: ["Flutter", "Fintech", "Investment"],
       url: "https://myinvestar.ng/"
