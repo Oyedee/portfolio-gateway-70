@@ -1,112 +1,110 @@
-
-import { useState, useEffect } from 'react';
-import { Menu, X, Moon, Sun } from 'lucide-react';
-import { Switch } from '@/components/ui/switch';
+import { useEffect, useState } from 'react';
+import { Menu, Moon, Sun, X } from 'lucide-react';
 import { useTheme } from '@/contexts/ThemeContext';
+import { navItems, profile } from '@/data/portfolio';
+import { cn } from '@/lib/utils';
+
+const ThemeToggle = () => {
+  const { theme, toggleTheme } = useTheme();
+  const isDark = theme === 'dark';
+
+  return (
+    <button
+      type="button"
+      onClick={toggleTheme}
+      className="inline-flex h-9 w-9 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+      aria-label={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
+    >
+      {isDark ? <Sun size={17} aria-hidden /> : <Moon size={17} aria-hidden />}
+    </button>
+  );
+};
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
+    const handleScroll = () => setIsScrolled(window.scrollY > 16);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  useEffect(() => {
+    if (!isMenuOpen) return;
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setIsMenuOpen(false);
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [isMenuOpen]);
+
   const closeMenu = () => setIsMenuOpen(false);
 
-  const scrollToSection = (id: string) => {
-    closeMenu();
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'py-3 bg-white/95 dark:bg-black/95 shadow-sm backdrop-blur-sm' : 'py-5 bg-transparent'}`}>
-      <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
-        <a href="#" className="flex items-center gap-2">
-          <div className="flex items-center justify-center h-10 w-10 rounded-full bg-purple-600 text-white font-bold text-xl">H</div>
-          <span className="font-display font-bold text-xl">Hamid</span>
+    <header
+      className={cn(
+        'fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300',
+        isScrolled || isMenuOpen
+          ? 'border-border bg-background/85 backdrop-blur-md'
+          : 'border-transparent bg-transparent'
+      )}
+    >
+      <div className="container-page flex h-16 items-center justify-between">
+        <a href="#home" className="group flex items-baseline gap-2" onClick={closeMenu}>
+          <span className="text-[15px] font-semibold tracking-tight">{profile.name}</span>
+          <span className="hidden font-mono text-xs text-muted-foreground sm:inline">/ {profile.role.toLowerCase()}</span>
         </a>
 
-        {/* Desktop Menu */}
-        <nav className="hidden md:flex items-center gap-8">
-          <button onClick={() => scrollToSection('about')} className="text-gray-800 dark:text-gray-200 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
-            About
-          </button>
-          <button onClick={() => scrollToSection('services')} className="text-gray-800 dark:text-gray-200 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
-            Services
-          </button>
-          <button onClick={() => scrollToSection('projects')} className="text-gray-800 dark:text-gray-200 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
-            Projects
-          </button>
-          <button onClick={() => scrollToSection('experience')} className="text-gray-800 dark:text-gray-200 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
-            Experience
-          </button>
-          <div className="flex items-center gap-2 ml-2">
-            <Sun size={18} className={`transition-opacity ${theme === 'dark' ? 'opacity-50' : 'opacity-100'}`} />
-            <Switch
-              checked={theme === 'dark'}
-              onCheckedChange={toggleTheme}
-              aria-label="Toggle dark mode"
-            />
-            <Moon size={18} className={`transition-opacity ${theme === 'light' ? 'opacity-50' : 'opacity-100'}`} />
-          </div>
-          <button onClick={() => scrollToSection('contact')} className="button-primary">
-            Hire Me
-          </button>
+        <nav aria-label="Primary" className="hidden items-center gap-1 md:flex">
+          {navItems.map(item => (
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              className="rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+            >
+              {item.label}
+            </a>
+          ))}
+          <span className="mx-2 h-4 w-px bg-border" aria-hidden />
+          <ThemeToggle />
         </nav>
 
-        {/* Mobile Menu Toggle */}
-        <div className="md:hidden flex items-center gap-4">
-          <div className="flex items-center gap-1">
-            <Sun size={16} className={`transition-opacity ${theme === 'dark' ? 'opacity-50' : 'opacity-100'}`} />
-            <Switch
-              checked={theme === 'dark'}
-              onCheckedChange={toggleTheme}
-              aria-label="Toggle dark mode"
-              className="scale-75"
-            />
-            <Moon size={16} className={`transition-opacity ${theme === 'light' ? 'opacity-50' : 'opacity-100'}`} />
-          </div>
-          <button className="text-gray-800 dark:text-gray-200" onClick={toggleMenu}>
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        <div className="flex items-center gap-1 md:hidden">
+          <ThemeToggle />
+          <button
+            type="button"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-md text-foreground hover:bg-secondary"
+            onClick={() => setIsMenuOpen(open => !open)}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-menu"
+            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+          >
+            {isMenuOpen ? <X size={20} aria-hidden /> : <Menu size={20} aria-hidden />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      <div className={`md:hidden absolute top-full left-0 right-0 bg-white dark:bg-black shadow-lg transition-all duration-300 transform origin-top ${isMenuOpen ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0 pointer-events-none'}`}>
-        <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
-          <button onClick={() => scrollToSection('about')} className="text-left py-2 text-gray-800 dark:text-gray-200 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
-            About
-          </button>
-          <button onClick={() => scrollToSection('services')} className="text-left py-2 text-gray-800 dark:text-gray-200 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
-            Services
-          </button>
-          <button onClick={() => scrollToSection('projects')} className="text-left py-2 text-gray-800 dark:text-gray-200 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
-            Projects
-          </button>
-          <button onClick={() => scrollToSection('experience')} className="text-left py-2 text-gray-800 dark:text-gray-200 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
-            Experience
-          </button>
-          <button onClick={() => scrollToSection('contact')} className="button-primary self-start">
-            Hire Me
-          </button>
-        </div>
-      </div>
+      <nav
+        id="mobile-menu"
+        aria-label="Mobile"
+        hidden={!isMenuOpen}
+        className="border-t border-border bg-background md:hidden"
+      >
+        <ul className="container-page py-3">
+          {navItems.map(item => (
+            <li key={item.id}>
+              <a
+                href={`#${item.id}`}
+                onClick={closeMenu}
+                className="flex items-center justify-between border-b border-border/60 py-4 text-lg last:border-0"
+              >
+                {item.label}
+                <span className="font-mono text-xs text-muted-foreground">#{item.id}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
     </header>
   );
 };

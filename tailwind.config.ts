@@ -66,16 +66,7 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom colors for portfolio
-				'yellow-card': '#FFE082',
-				'blue-card': '#90CAF9',
-				'pink-card': '#F8BBD0',
-				'tag-bg': '#F0E6FF',
-				'dark-yellow-card': '#1A1500',
-				'dark-blue-card': '#001024',
-				'dark-pink-card': '#1A0010',
-				'dark-tag-bg': '#120A24',
-				'lilac-card': '#C8A2C8',
+				brand: 'hsl(var(--brand))',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -83,9 +74,8 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			fontFamily: {
-				'sans': ['Inter', 'sans-serif'],
-				'display': ['Playfair Display', 'serif'],
-				'hand': ['Caveat', 'cursive'],
+				sans: ['Geist', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+				mono: ['"Geist Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
 			},
 			keyframes: {
 				'accordion-down': {
@@ -97,34 +87,14 @@ export default {
 					to: { height: '0' }
 				},
 				'fade-in': {
-					'0%': { opacity: '0', transform: 'translateY(10px)' },
+					'0%': { opacity: '0', transform: 'translateY(8px)' },
 					'100%': { opacity: '1', transform: 'translateY(0)' }
-				},
-				'float': {
-					'0%, 100%': { transform: 'translateY(0)' },
-					'50%': { transform: 'translateY(-10px)' }
-				},
-				'rotate-card': {
-					'0%': { transform: 'rotate(0deg)' },
-					'100%': { transform: 'rotate(-4deg)' }
-				},
-				'skew-in': {
-					'0%': { transform: 'skewY(3deg) translateY(100px)', opacity: '0' },
-					'100%': { transform: 'skewY(0) translateY(0)', opacity: '1' }
-				},
-				'card-hover': {
-					'0%': { transform: 'rotate(0) scale(1)' },
-					'100%': { transform: 'rotate(-2deg) scale(1.03)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'fade-in': 'fade-in 0.6s ease-out forwards',
-				'float': 'float 6s ease-in-out infinite',
-				'rotate-card': 'rotate-card 0.4s ease-out forwards',
-				'skew-in': 'skew-in 0.7s ease-out forwards',
-				'card-hover': 'card-hover 0.3s ease-out forwards'
+				'fade-in': 'fade-in 0.7s ease-out both'
 			}
 		}
 	},

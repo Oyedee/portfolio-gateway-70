@@ -1,36 +1,41 @@
-
+import { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
-import Services from '@/components/Services';
-import Projects from '@/components/Projects';
+import Work from '@/components/Work';
+import CurrentlyBuilding from '@/components/CurrentlyBuilding';
+import Engineering from '@/components/Engineering';
 import Experience from '@/components/Experience';
+import About from '@/components/About';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
-import { useEffect } from 'react';
 
 const Index = () => {
-  // This ensures smooth scrolling when navigating between sections
+  // Honour a deep link like /#work once sections have rendered
   useEffect(() => {
-    // Check if there's a hash in the URL and scroll to that section
-    if (window.location.hash) {
-      const id = window.location.hash.substring(1);
-      const element = document.getElementById(id);
-      if (element) {
-        setTimeout(() => {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
-      }
-    }
+    const id = window.location.hash.slice(1);
+    if (!id) return;
+    const timer = window.setTimeout(() => document.getElementById(id)?.scrollIntoView(), 100);
+    return () => window.clearTimeout(timer);
   }, []);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-black">
+    <div className="min-h-screen bg-background">
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground"
+      >
+        Skip to content
+      </a>
       <Navbar />
-      <Hero />
-      <Services />
-      <Projects />
-      <Experience />
-      <Contact />
+      <main id="main">
+        <Hero />
+        <Work />
+        <CurrentlyBuilding />
+        <Engineering />
+        <Experience />
+        <About />
+        <Contact />
+      </main>
       <Footer />
     </div>
   );

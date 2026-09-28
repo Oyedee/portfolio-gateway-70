@@ -1,87 +1,84 @@
+import { ArrowDown, ArrowUpRight } from 'lucide-react';
+import { profile, socials, stats } from '@/data/portfolio';
+import { cn } from '@/lib/utils';
 
-import { ArrowRight, Mail, Github, Linkedin } from 'lucide-react';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
+const Hero = () => (
+  <section id="home" aria-labelledby="hero-heading" className="relative overflow-hidden pt-28 sm:pt-36">
+    <div className="hero-grid pointer-events-none absolute inset-0" aria-hidden />
+    <div className="hero-glow pointer-events-none absolute inset-0" aria-hidden />
 
-const Hero = () => {
-  const { domRef, isVisible } = useScrollAnimation();
+    <div className="container-page relative">
+      <div className="max-w-4xl animate-fade-in">
+        <p className="eyebrow flex items-center gap-3">
+          <span className="h-px w-8 bg-brand" aria-hidden />
+          {profile.role}
+        </p>
 
-  return (
-    <section id="about" className="pt-32 pb-20 md:pt-36 md:pb-24 overflow-hidden grid-pattern">
-      <div className="container mx-auto px-6 md:px-12">
-        <div ref={domRef} className={`grid md:grid-cols-2 gap-12 items-center ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
-          <div className="order-2 md:order-1">
-            <div className="handwritten mb-2">Mobile Developer</div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              I build beautiful<br />
-              user experiences on mobile platforms
-            </h1>
-            <p className="text-gray-600 mb-8 text-lg">
-              Specializing in Flutter, iOS and Android development with a focus on creating seamless, 
-              intuitive applications that solve real problems.
-            </p>
-            
-            <div className="flex flex-wrap gap-4 mb-8">
-              <a href="#contact" className="button-primary">
-                <span>Hire Me</span>
-                <ArrowRight size={18} />
-              </a>
-              <a href="#projects" className="button-outline">
-                <span>View Projects</span>
-              </a>
-            </div>
-            
-            <div className="flex gap-6">
-              <a 
-                href="mailto:oyempemia@gmail.com" 
-                className="animated-icon flex items-center justify-center h-10 w-10 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200"
-                aria-label="Email"
-              >
-                <Mail size={18} />
-              </a>
-              <a 
-                href="https://github.com/Oyedee" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="animated-icon flex items-center justify-center h-10 w-10 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200"
-                aria-label="GitHub"
-              >
-                <Github size={18} />
-              </a>
-              <a 
-                href="https://linkedin.com/in/hamid-oyempemi-gmnse-828a22115" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="animated-icon flex items-center justify-center h-10 w-10 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200"
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={18} />
-              </a>
-            </div>
-          </div>
-          
-          <div className="order-1 md:order-2 relative flex justify-center">
-            <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full bg-purple-100 flex items-center justify-center overflow-hidden animate-float">
-              <div className="absolute inset-2 rounded-full bg-white">
-                <div className="absolute inset-0 rounded-full overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-200 to-blue-200"></div>
-                  {/* User avatar image would go here */}
-                  <div className="absolute inset-0 flex items-center justify-center text-4xl font-bold text-purple-600">H</div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="absolute -bottom-4 -left-4 transform rotate-3 bg-yellow-card px-5 py-3 rounded-lg shadow-lg animate-rotate-card">
-              <div className="font-medium">Software Developer</div>
-            </div>
-            
-            <div className="absolute -top-4 -right-4 transform -rotate-6 bg-blue-card px-5 py-3 rounded-lg shadow-lg animate-rotate-card">
-              <div className="font-medium">Mobile Expert</div>
-            </div>
-          </div>
+        <h1
+          id="hero-heading"
+          className="mt-6 text-[2.6rem] font-semibold leading-[1.05] sm:text-6xl lg:text-7xl"
+        >
+          I build mobile products people actually use.
+        </h1>
+
+        <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+          I'm {profile.name} — a senior mobile engineer focused on Flutter and Dart, with experience
+          across Kotlin, Swift, Java and Spring Boot. I build production systems across fintech,
+          payments, commerce, social and utility products.
+        </p>
+
+        <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <a href="#work" className="btn-primary">
+            Explore my work
+            <ArrowDown size={16} aria-hidden />
+          </a>
+          <a href="#contact" className="btn-ghost">
+            Let's talk
+          </a>
         </div>
+
+        <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm" aria-label="Social links">
+          {socials.map(social => {
+            const external = !social.href.startsWith('mailto:');
+            return (
+              <li key={social.label}>
+                <a
+                  href={social.href}
+                  {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                  className="group inline-flex items-center gap-1 text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  {social.label}
+                  <ArrowUpRight
+                    size={13}
+                    aria-hidden
+                    className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                  />
+                  {external && <span className="sr-only">(opens in a new tab)</span>}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
       </div>
-    </section>
-  );
-};
+
+      <dl className="mt-16 grid grid-cols-2 border-y border-border sm:mt-20 lg:grid-cols-4">
+        {stats.map((stat, i) => (
+          <div
+            key={stat.label}
+            className={cn(
+              'flex flex-col-reverse gap-1 py-6 pr-4',
+              i % 2 === 1 && 'border-l border-border pl-5 sm:pl-8',
+              i >= 2 && 'border-t border-border lg:border-t-0',
+              i === 2 && 'lg:border-l lg:pl-8'
+            )}
+          >
+            <dt className="font-mono text-xs text-muted-foreground">{stat.label}</dt>
+            <dd className="text-xl font-semibold tracking-tight sm:text-2xl">{stat.value}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
+);
 
 export default Hero;
